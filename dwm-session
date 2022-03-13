@@ -1,0 +1,12 @@
+#! /bin/bash
+picom -f &
+nitrogen --restore &
+playerctld &
+dunst &
+while true; do
+	xsetroot -name "$(date)"
+	sleep 1
+done &
+flameshot &
+discord &
+exec dwm
