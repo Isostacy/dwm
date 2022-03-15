@@ -94,11 +94,10 @@ static const char *lockscreen[]  = { "betterlockscreen", "-l", NULL };
 static const char *playpause[]   = { "playpause", NULL };
 static const char *nextsong[]    = { "nextsong", NULL };
 static const char *prevsong[]    = { "prevsong", NULL };
-static const char *rofimenu[]    = { "/home/bowiten/.config/rofi/launchers/text/launcher.sh", NULL };
+static const char *rofimenu[]    = { "launcher_text", NULL };
 static const char *incvol[] 	 = { "incvol", NULL };
 static const char *decvol[]	 = { "decvol", NULL };
-/* static const char *logoutdwm[]   = { "/home/bowiten/.local/bin/logoutdwm", NULL }; */
-static const char *powermenu[]   = { "/home/bowiten/.config/rofi/powermenu/powermenu.sh", NULL };
+static const char *powermenu[]   = { "powermenu", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -110,7 +109,7 @@ static Key keys[] = {
 	{ 0,				XK_Print,  spawn,          {.v = flameshot } },
 	{ MODKEY,			XK_l,	   spawn,	   {.v = lockscreen } },
         { MODKEY,                       0,         spawn,          {.v = rofimenu} },
-/*	{ MODKEY|ALTONE,		XK_End,	   spawn,	   {.v = powermenu } }, */
+	{ ALTONE|ShiftMask,		XK_q,	   spawn,	   {.v = powermenu } }, 
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -146,7 +145,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ CTRLONE|ALTONE|ShiftMask,     XK_q,      quit,           {0} },
-	{ ALTONE|ShiftMask,	        XK_q,      spawn,          {.v = powermenu} },
      { 0,				XF86XK_AudioPlay,          spawn,  {.v = playpause} },
      { 0, 				XF86XK_AudioRaiseVolume,   spawn,  {.v = incvol} },
      { 0, 				XF86XK_AudioLowerVolume,   spawn,  {.v = decvol} },
